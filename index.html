@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col">
+    <header
+      class="flex justify-around items-center p-4 w-full bg-gray-800 text-white p-4 shadow-lg h-16 flex items-center"
+    >
+      <h1 class="ml-4 text-3xl font-bold">Marca</h1>
+      <div class="flex-1"></div>
+
+      <nav>
+        <ul class="flex gap-4">
+          <li><a href="">sobre</a></li>
+          <li><a href="">sobre</a></li>
+          <li><a href="">sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div
+      class="main-wrapper w-full flex-1 flex flex-col md:grid md:grid-cols-4"
+    >
+        <aside class="bg-white p-4 shadow-xl border-r border-gray-200 lg:col-span-1 h-full w-full">
+            <div class="mb-6 flex items-center space-x-3 border-b pb-4">
+                <div class="w-10 h-10 rounded-full border border-gray-400"></div>
+                <div>
+                    <p class="font-semibold">Username</p>
+                    <p class="text-xs text-green-500">Online</p>
+                </div>
+            </div>
+            
+            <h2 class="text-lg font-semibold mb-2">Sidebar</h2>
+            <ul class="space-y-2 text-sm text-gray-600">
+                <li>Opção 1 (Comum)</li>
+                <li>Opção 2 (Comum)</li>
+                <li class="font-bold text-red-500 mt-4 pt-2 border-t">Área Admin (Diferenciação)</li>
+            </ul>
+        </aside>
+
+      <main class="md:col-span-3 p-6 space-y-6 overflow-y-auto">
+        <section
+          class="bg-white p-6 rounded-lg shadow-md h-64 flex flex-col items-center justify-center border-t-4 border-blue-500 overflow-x-auto overflow-y-auto"
+        >
+          <h2 class="mb-3 text-xl font-bold">Painel</h2>
+
+          <div id="groupCard" class="flex gap-4">
+            <div
+              id="posts"
+              onclick="openWind('posts')"
+              class="
+              bg-white-200
+              p-4 mb-4 
+              w-[300px] h-[150px]
+              shadow-lg
+              border-2
+              border-blue-100 
+              rounded-xl
+              hover:bg-slate-100 
+              hover:border-green-500
+              hover:w-[310px]
+              hover:h-[160px]
+              hover:shadow-2xl
+              transition delay-150
+              duration-300
+              ease-in-out"
+            >
+              <div>Nova Postagem</div>
+            </div>
+            <div
+              class="
+               bg-white-200
+              p-4 mb-4 
+              w-[300px] h-[150px]
+              shadow-lg
+              border-2
+              border-blue-100 
+              rounded-xl
+              hover:bg-slate-100 
+              hover:border-green-500
+              hover:w-[310px]
+              hover:h-[160px]
+              hover:shadow-2xl
+              transition delay-150
+              duration-300
+              ease-in-out"
+            >
+              <div>Visão Geral</div>
+            </div>
+
+            <div
+              class="
+               bg-white-200
+              p-4 mb-4 
+              w-[300px] h-[150px]
+              shadow-lg
+              border-2
+              border-blue-100 
+              rounded-xl
+              hover:bg-slate-100 
+              hover:border-green-500
+              hover:w-[310px]
+              hover:h-[160px]
+              hover:shadow-2xl
+              transition delay-150
+              duration-300
+              ease-in-out"
+            >
+              <div>Clientes</div>
+            </div>
+
+            <div
+              class="
+              bg-white-200
+              p-4 mb-4 
+              w-[300px] h-[150px]
+              shadow-lg
+              border-2
+              border-blue-100 
+              rounded-xl
+              hover:bg-slate-100 
+              hover:border-green-500
+              hover:w-[310px]
+              hover:h-[160px]
+              hover:shadow-2xl
+              transition delay-150
+              duration-300
+              ease-in-out"
+            >
+              <div>Produtos</div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="bg-white p-6 rounded-lg shadow-md min-h-[500px] flex items-center justify-center border-t-4 border-green-500"
+        >
+          <h2 class="text-xl font-bold">Conteúdo</h2>
+        </section>
+
+        <p class="text-center text-gray-500">Scroll para baixo</p>
+      </main>
+    </div>
+  </body>
+</html>

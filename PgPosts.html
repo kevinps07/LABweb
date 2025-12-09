@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Editor Markdown/WYSIWYG</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+       <link href="/styles.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+
+    <style>
+        /* Garantindo que o wrapper principal ocupe o espaço restante */
+        .main-wrapper {
+            height: calc(100vh - 4rem); /* Altura da tela menos o Header (h-16 = 4rem) */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <header class="w-full bg-gray-800 text-white p-4 shadow-lg h-16 flex items-center">
+        <h1 class="text-xl font-bold">Dashboard</h1>
+    </header>
+
+    <div class="main-wrapper w-full flex-1 flex flex-col lg:grid lg:grid-cols-4">
+
+        <aside class="bg-white p-4 shadow-xl border-r border-gray-200 lg:col-span-1 h-full w-full">
+            <div class="mb-6 flex items-center space-x-3 border-b pb-4">
+                <div class="w-10 h-10 rounded-full border border-gray-400"></div>
+                <div>
+                    <p class="font-semibold">Username</p>
+                    <p class="text-xs text-green-500">Online</p>
+                </div>
+            </div>
+            
+            <h2 class="text-lg font-semibold mb-2">Sidebar</h2>
+            <ul class="space-y-2 text-sm text-gray-600">
+                <li>Opção 1 (Comum)</li>
+                <li>Opção 2 (Comum)</li>
+                <li class="font-bold text-red-500 mt-4 pt-2 border-t">Área Admin (Diferenciação)</li>
+            </ul>
+        </aside>
+
+        <main class="lg:col-span-3 p-6 bg-gray-50 overflow-y-auto">
+            
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Nova Postagem</h2>
+
+            <div class="mb-6 flex items-center space-x-4">
+                <input type="text" placeholder="TÍTULO" class="p-3 border border-gray-300 rounded-lg flex-1 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <button class="bg-green-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-600 transition">
+                    Tags
+                </button>
+            </div>
+
+            <div class="lg:grid lg:gap-6 space-y-6 lg:space-y-0">
+                
+                <div>
+                    <p class="font-semibold mb-2 text-gray-700">Conteúdo</p>
+
+                    <div class="bg-white shadow-xl p-4">
+                      <div id="toolbar-container">
+                        <span class="ql-formats">
+                          <select class="ql-font"></select>
+                          <select class="ql-size"></select>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-bold"></button>
+                          <button class="ql-italic"></button>
+                          <button class="ql-underline"></button>
+                          <button class="ql-strike"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <select class="ql-color"></select>
+                          <select class="ql-background"></select>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-script" value="sub"></button>
+                          <button class="ql-script" value="super"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-header" value="1"></button>
+                          <button class="ql-header" value="2"></button>
+                          <button class="ql-blockquote"></button>
+                          <button class="ql-code-block"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-list" value="ordered"></button>
+                          <button class="ql-list" value="bullet"></button>
+                          <button class="ql-indent" value="-1"></button>
+                          <button class="ql-indent" value="+1"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-direction" value="rtl"></button>
+                          <select class="ql-align"></select>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-link"></button>
+                          <button class="ql-image"></button>
+                          <button class="ql-video"></button>
+                          <button class="ql-formula"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-clean"></button>
+                        </span>
+                      </div>
+                      <div id="editor">
+                      </div>
+
+                    </div>
+                        
+                     
+                    </div>
+                </div>
+
+
+            <div class="mt-4 flex justify-end space-x-4">
+                <button id="cancelPost" onclick="openWind('cancelPost')" class="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition">
+                    Cancelar/Descartar
+                </button>
+                <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition">
+                    Publicar
+                </button>
+            </div>
+
+            </div>
+
+
+        </main>
+        
+    </div>
+
+
+
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+    modules: {
+      syntax: true,
+      toolbar: '#toolbar-container',
+    },
+    placeholder: 'Compose an epic...',
+    theme: 'snow',
+  });
+</script>
+</body>
+</html>

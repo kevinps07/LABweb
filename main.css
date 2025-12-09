@@ -1,0 +1,15 @@
+      /* CSS Puro para garantir 100% da altura da Viewport */
+      html,
+      body {
+        height: 100%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      /* Garantindo que o wrapper principal ocupe o espaço restante */
+      .main-wrapper {
+        height: calc(
+          100vh - 4rem
+        ); /* 100% da altura da tela menos a altura do Header (h-16 = 4rem) */
+      }
